@@ -94,7 +94,9 @@ export const ExpenseRecord = () => {
                   <td className="p-1 text-center font-medium text-base">
                     {expense.deductionType}
                   </td>
-                  <td className="text-center text-sm">{expense.amount}</td>
+                  <td className="text-center text-sm">
+                    {expense.amount.toLocaleString()}
+                  </td>
                   <td className="p-2 text-xs ">
                     <DatePicker
                       selected={new Date(expense.date)}
