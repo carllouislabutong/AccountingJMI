@@ -110,7 +110,7 @@ export const ExpenseRecord = () => {
                   <td className=" text-center">{expense.processBy}</td>
                   <td className="flex gap-4 justify-center">
                     <button
-                      className="text-red-800"
+                      className="text-red-700 hover:text-red-900 hover:shadow-lg"
                       onClick={() => deleteExpense(expense._id)}
                     >
                       <svg
