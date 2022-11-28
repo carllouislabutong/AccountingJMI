@@ -5,9 +5,10 @@ import { Billing } from "./pages/AddBill";
 import { BillRecord } from "./pages/BillRecord";
 import { Expense } from "./pages/AddExpense";
 import { ExpenseRecord } from "./pages/ExpenseRecord";
-import { Sheet } from "./pages/BalanceSheet";
+import { Sales } from "./pages/Sales";
 import { EditBill } from "./EditingData/EditBill";
 import { EditExpense } from "./EditingData/EditExpense";
+import { Loss } from "./pages/Loss";
 
 function App() {
   return (
@@ -18,9 +19,10 @@ function App() {
         <Route path="/billRecord" element={<BillRecord />} />
         <Route path="/addExpense" element={<Expense />} />
         <Route path="/expenseRecord" element={<ExpenseRecord />} />
-        <Route path="/balance" element={<Sheet />} />
+        <Route path="/sales" element={<Sales />} />
         <Route path="/editBill/:id" element={<EditBill />} />
         <Route path="/editExpense/:id" element={<EditExpense />} />
+        <Route path="/loss" element={<Loss />} />
       </Routes>
     </div>
   );

@@ -110,7 +110,7 @@ export const NavBar = () => {
         </div>
         <div>
           <h1 className="text-violet-600 mt-5 font-bold text-2xl">
-            Profit and Loss
+            BalanceSheet
           </h1>
           <div className="flex items-between gap-2 mt-5 p-2 hover:bg-violet-500 hover:rounded-md hover:text-white">
             <svg
@@ -119,17 +119,36 @@ export const NavBar = () => {
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              class="w-5 h-5"
+              class="w-6 h-6"
             >
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971z"
+                d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"
               />
             </svg>
 
-            <Link to="/balance" className="font-bold">
-              Balance Sheet
+            <Link to="/sales" className="font-bold">
+              Sale
+            </Link>
+          </div>
+          <div className="flex items-between gap-2 mt-5 p-2 hover:bg-violet-500 hover:rounded-md hover:text-white">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M2.25 6L9 12.75l4.286-4.286a11.948 11.948 0 014.306 6.43l.776 2.898m0 0l3.182-5.511m-3.182 5.51l-5.511-3.181"
+              />
+            </svg>
+            <Link to="/loss" className="font-bold">
+              Loss
             </Link>
           </div>
         </div>

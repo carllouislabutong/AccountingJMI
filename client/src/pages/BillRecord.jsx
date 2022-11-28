@@ -45,7 +45,7 @@ export const BillRecord = () => {
   };
 
   return (
-    <div className="pl-80 pr-28 bg-gradient-to-r from-indigo-900 via-violet-500 to-indigo-400 h-screen">
+    <div className="pl-80 pr-28 bg-gradient-to-r from-indigo-900 via-violet-500 to-indigo-400 bg-cover min-h-screen">
       <div className="border-b-2 pb-4">
         <h1 className="text-center text-white text-5xl font-bold">
           Billing Record
@@ -64,8 +64,8 @@ export const BillRecord = () => {
       <table class="border-collapse border-b border-x-transparent border-slate-400  bg-white mt-8 ">
         <thead>
           <tr className="text-violet-600">
-            <th class="border-b border-slate-300  p-2">No.</th>
-            <th class="border-b border-slate-300 p-2 w-1/4">Name</th>
+            <th className="border-b border-slate-300  p-2">No.</th>
+            <th clasName="border-b border-slate-300 p-2 w-1/4">Name</th>
             <th class="border-b border-slate-300 w-1/4 p-2">Contact</th>
             <th class="border-b border-slate-300  ">Date</th>
             <th class="border-b border-slate-300  w-1/3">Description</th>
@@ -92,7 +92,7 @@ export const BillRecord = () => {
                   key={index}
                 >
                   <th scope="arrow">{index + 1}</th>
-                  <td className="p-1 text-center font-medium text-base">
+                  <td className="p-1 text-center font-medium text-sm">
                     {bill.name}
                   </td>
                   <td className="text-center text-sm">{bill.contact}</td>
@@ -110,9 +110,9 @@ export const BillRecord = () => {
                   <td className=" text-center">
                     {bill.total.toLocaleString()}
                   </td>
-                  <td className="flex gap-4 justify-center">
+                  <td className="flex gap-4 justify-center mt-3">
                     <button
-                      className="text-red-800"
+                      className="text-red-800 "
                       onClick={() => deleteBill(bill._id)}
                     >
                       <svg

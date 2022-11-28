@@ -134,6 +134,67 @@ app.put("/editExpense/:id", async (req, res) => {
   );
   res.json({ success: true, data: response });
 });
+
+////////////// Ssales Route///////////////////
+
+/////////sales for month/////////
+app.get("/sales", async (req, res) => {
+  const data = await BillingData.aggregate(
+    [
+      {
+        $group: {
+          _id: {
+            Month: {
+              $month: "$date",
+            },
+            Year: {
+              $year: "$date",
+            },
+          },
+          Sales: {
+            $sum: "$total",
+          },
+        },
+      },
+      {
+        $project: {
+          Sales: "$Sales",
+          Month: {
+            $arrayElemAt: [
+              [
+                "",
+                "Jan",
+                "Feb",
+                "Mar",
+                "Apr",
+                "May",
+                "Jun",
+                "Jul",
+                "Aug",
+                "Sep",
+                "Oct",
+                "Nov",
+                "Dec",
+              ],
+              "$_id.Month",
+            ],
+          },
+        },
+      },
+      {
+        $sort: {
+          "_id.Month": 1,
+          "_id.Year": 1,
+        },
+      },
+    ],
+    function (err, result) {
+      return result;
+    }
+  );
+
+  res.json({ success: true, data: data });
+});
 mongoose
   .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,

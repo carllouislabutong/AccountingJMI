@@ -43,7 +43,7 @@ export const ExpenseRecord = () => {
   };
 
   return (
-    <div className="pl-80 pr-28 bg-gradient-to-r from-indigo-900 via-violet-500 to-indigo-400 h-screen">
+    <div className="pl-80 pr-28 bg-gradient-to-r from-indigo-900 via-violet-500 to-indigo-400 bg-cover min-h-screen">
       <div className="border-b-2 pb-4">
         <h1 className="text-center text-white text-5xl font-bold">
           Billing Record
@@ -108,7 +108,7 @@ export const ExpenseRecord = () => {
                     />
                   </td>
                   <td className=" text-center">{expense.processBy}</td>
-                  <td className="flex gap-4 justify-center">
+                  <td className="flex gap-4 justify-center mt-3">
                     <button
                       className="text-red-700 hover:text-red-900 hover:shadow-lg"
                       onClick={() => deleteExpense(expense._id)}
