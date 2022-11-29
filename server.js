@@ -4,6 +4,7 @@ const BillingData = require("./models/BillingModel.jsx");
 const ExpenseData = require("./models/ExpenseModel.jsx");
 const app = express();
 const cors = require("cors");
+const path = require("path");
 
 require("dotenv").config({ path: "./.env" });
 
