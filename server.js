@@ -195,6 +195,122 @@ app.get("/sales", async (req, res) => {
 
   res.json({ success: true, data: data });
 });
+
+//////loss per month///////
+app.get("/loss", async (req, res) => {
+  const ExpenseLoss = await ExpenseData.aggregate(
+    [
+      {
+        $group: {
+          _id: {
+            Month: {
+              $month: "$date",
+            },
+            Year: {
+              $year: "$date",
+            },
+          },
+          Loss: {
+            $sum: "$amount",
+          },
+        },
+      },
+      {
+        $project: {
+          Loss: "$Loss",
+          Month: {
+            $arrayElemAt: [
+              [
+                "",
+                "Jan",
+                "Feb",
+                "Mar",
+                "Apr",
+                "May",
+                "Jun",
+                "Jul",
+                "Aug",
+                "Sep",
+                "Oct",
+                "Nov",
+                "Dec",
+              ],
+              "$_id.Month",
+            ],
+          },
+        },
+      },
+      {
+        $sort: {
+          "_id.Month": 1,
+          "_id.Year": 1,
+        },
+      },
+    ],
+    function (err, result) {
+      return result;
+    }
+  );
+
+  res.json({ success: true, data: ExpenseLoss });
+});
+
+///profit every year
+app.get("/netProfit", async (req, res) => {
+  const totalSale = await BillingData.aggregate(
+    [
+      {
+        $group: {
+          _id: {
+            Year: {
+              $year: "$date",
+            },
+          },
+          Sales: {
+            $sum: "$total",
+          },
+        },
+      },
+    ],
+    function (err, result) {
+      return result;
+    }
+  );
+
+  const totalExpense = await ExpenseData.aggregate(
+    [
+      {
+        $group: {
+          _id: {
+            Year: {
+              $year: "$date",
+            },
+          },
+          Expense: {
+            $sum: "$amount",
+          },
+        },
+      },
+    ],
+    function (err, result) {
+      return result;
+    }
+  );
+
+  const totalProfit = totalSale[0].Sales - totalExpense[0].Expense;
+
+  res.json({
+    success: true,
+    data: {
+      netProfit: totalProfit,
+      totalLoss: totalExpense[0].Expense,
+      totalSales: totalSale[0].Sales,
+      totalSalesYear: totalSale[0]._id.Year,
+      totalExpenseYear: totalExpense[0]._id.Year,
+    },
+  });
+});
+
 mongoose
   .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,

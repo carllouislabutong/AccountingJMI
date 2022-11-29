@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
+import { Helmet } from "react-helmet";
+import img1 from "../pictures/jmi.jpg";
 
 export const Billing = () => {
   const [name, setName] = useState("");
@@ -19,6 +21,10 @@ export const Billing = () => {
 
   return (
     <div className="px-80 bg-gradient-to-r from-indigo-900 via-violet-500 to-indigo-400 h-screen">
+      <Helmet>
+        <title>Add Billing</title>
+        <meta name="addbilling" content="This is the Billing Section" />
+      </Helmet>
       <div className="text-center border-b-2 pb-3">
         <h1 className="font-extrabold text-5xl text-white">Add Billing</h1>
       </div>
@@ -93,9 +99,9 @@ export const Billing = () => {
               }}
             />
           </div>
-          {/* <div>
-            <img src={img1} alt="" className="h-48 w-48" />
-          </div> */}
+          <div>
+            <img src={img1} alt="" className="h-full w-96" />
+          </div>
         </div>
         <button
           type="submit"

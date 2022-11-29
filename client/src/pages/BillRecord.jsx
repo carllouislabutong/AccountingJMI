@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { Helmet } from "react-helmet";
 
 export const BillRecord = () => {
   const [bills, setBills] = useState([]);
@@ -46,6 +47,10 @@ export const BillRecord = () => {
 
   return (
     <div className="pl-80 pr-28 bg-gradient-to-r from-indigo-900 via-violet-500 to-indigo-400 bg-cover min-h-screen">
+      <Helmet>
+        <title>Billing Record</title>
+        <meta name="billingrecord" content="This is the Billing Section" />
+      </Helmet>
       <div className="border-b-2 pb-4">
         <h1 className="text-center text-white text-5xl font-bold">
           Billing Record

@@ -9,6 +9,7 @@ import { Sales } from "./pages/Sales";
 import { EditBill } from "./EditingData/EditBill";
 import { EditExpense } from "./EditingData/EditExpense";
 import { Loss } from "./pages/Loss";
+import { Profit } from "./pages/NetProfit";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/editBill/:id" element={<EditBill />} />
         <Route path="/editExpense/:id" element={<EditExpense />} />
         <Route path="/loss" element={<Loss />} />
+        <Route path="/profit" element={<Profit />} />
       </Routes>
     </div>
   );

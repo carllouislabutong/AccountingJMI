@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { Helmet } from "react-helmet";
 
 export const ExpenseRecord = () => {
   const [data, setData] = useState([]);
@@ -44,6 +45,10 @@ export const ExpenseRecord = () => {
 
   return (
     <div className="pl-80 pr-28 bg-gradient-to-r from-indigo-900 via-violet-500 to-indigo-400 bg-cover min-h-screen">
+      <Helmet>
+        <title>Expense Record</title>
+        <meta name="expenserecord" content="This is the Expense Section" />
+      </Helmet>
       <div className="border-b-2 pb-4">
         <h1 className="text-center text-white text-5xl font-bold">
           Billing Record

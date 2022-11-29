@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
+import { Helmet } from "react-helmet";
+import img1 from "../pictures/jmi.jpg";
 
 export const Expense = () => {
   const [deduction, setDeduction] = useState("");
@@ -17,6 +19,10 @@ export const Expense = () => {
 
   return (
     <div className="px-80 bg-gradient-to-r from-indigo-900 via-violet-500 to-indigo-400 h-screen">
+      <Helmet>
+        <title>Add Expense</title>
+        <meta name="addexpense" content="This is the expense Section" />
+      </Helmet>
       <div className="text-center border-b-2 pb-3">
         <h1 className="font-extrabold text-3xl text-white">Add Expense</h1>
       </div>
@@ -74,9 +80,9 @@ export const Expense = () => {
               }}
             />
           </div>
-          {/* <div>
-            <img src={img1} alt="" className="h-48 w-48" />
-          </div> */}
+          <div>
+            <img src={img1} alt="" className="h-full w-96" />
+          </div>
         </div>
         <button
           type="submit"

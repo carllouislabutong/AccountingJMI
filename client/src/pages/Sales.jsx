@@ -1,7 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import salesPic from "../pictures/sales.jpg";
+
+import { Helmet } from "react-helmet";
 
 export const Sales = () => {
   const [sales, setSales] = useState([]);
@@ -20,16 +21,19 @@ export const Sales = () => {
         console.log(err);
       });
   };
-  console.log(sales);
 
   return (
     <div className="pl-80 pr-28 bg-gradient-to-r from-indigo-900 via-violet-500 to-indigo-400 h-screen">
+      <Helmet>
+        <title>Sales Record</title>
+        <meta name="salesrecord" content="This is the sales Section" />
+      </Helmet>
       <div className="border-b-2 pb-4">
         <h1 className="text-center text-white text-5xl font-bold">
           Sales Record
         </h1>
       </div>
-      <div className="flex gap-7">
+      <div className="flex gap-7 justify-center">
         <table className="border-collapse border-b border-x-transparent border-slate-400  bg-white mt-8 w-3/5 ">
           <thead>
             <tr className="text-violet-600">
@@ -61,9 +65,6 @@ export const Sales = () => {
               })}
           </tbody>
         </table>
-        <div className="mt-8">
-          <img src={salesPic} alt="" className="h-80 w-80" />
-        </div>
       </div>
     </div>
   );
