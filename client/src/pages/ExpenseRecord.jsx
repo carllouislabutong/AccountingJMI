@@ -51,7 +51,7 @@ export const ExpenseRecord = () => {
       </Helmet>
       <div className="border-b-2 pb-4">
         <h1 className="text-center text-white text-5xl font-bold">
-          Billing Record
+          Expense Record
         </h1>
       </div>
       <div className="mt-6">
